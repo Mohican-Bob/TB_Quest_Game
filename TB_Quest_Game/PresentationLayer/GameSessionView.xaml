@@ -1,0 +1,208 @@
+﻿<Window x:Class="TB_Quest_Game.PresentationLayer.GameSessionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TB_Quest_Game.PresentationLayer"
+        mc:Ignorable="d"
+        Title="GameSessionView" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="GameBoardButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="Background" Value="Silver"/>
+            <Setter Property="Foreground" Value="MidnightBlue"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid 
+                            Width="{TemplateBinding Width}" 
+                            Height="{TemplateBinding Height}" 
+                            ClipToBounds="True">
+                            <Rectangle 
+                                x:Name="innerRectangle" 
+                                HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" 
+                                Fill="{TemplateBinding Background}" 
+                                RadiusX="5" 
+                                RadiusY="5" />
+                            <!-- Present Content (text) of the button. -->
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter 
+                                    x:Name="myContentPresenter" 
+                                    Margin="2" 
+                                    HorizontalAlignment="Center"
+                                    Content="{TemplateBinding  Content}" 
+                                    TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="LightSteelBlue" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="WindowButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="Silver"/>
+            <Setter Property="Foreground" Value="MidnightBlue"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid 
+                            Width="{TemplateBinding Width}" 
+                            Height="{TemplateBinding Height}" 
+                            ClipToBounds="True">
+                            <Rectangle 
+                                x:Name="innerRectangle" 
+                                HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" 
+                                Fill="{TemplateBinding Background}" 
+                                RadiusX="5" 
+                                RadiusY="5" />
+                            <!-- Present Content (text) of the button. -->
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter 
+                                    x:Name="myContentPresenter" 
+                                    Margin="2" 
+                                    HorizontalAlignment="Center"
+                                    Content="{TemplateBinding  Content}" 
+                                    TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="LightSteelBlue" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Image Source="1.jpg"
+               Width="800"
+                Height="600">
+        </Image>
+        <Button
+            Height="30"
+            Width="55" 
+            Margin="605,132,132,257"
+            Content="Enter"
+            />
+        <Button
+            Height="30"
+            Width="55" 
+            Margin="217,296,520,93"
+            Content="Enter"
+            />
+        <Button
+            Height="30"
+            Width="55" 
+            Margin="712,315,25,74"
+            Content="Enter"
+            />
+
+        <Grid
+            Height="50"
+            VerticalAlignment="Top"
+            Background="white">
+            <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>            
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Column="0"
+                Orientation="Horizontal">
+                <Label
+                    FontSize="20"
+                    Content="Health:"/>
+                <Label
+                    FontSize="20"                    
+                    Content="{Binding Player.Health}"/>
+            </StackPanel>
+            <Label
+                FontSize="20"
+                Grid.Column="1"
+                Content="Placeholder Text"/>
+            <StackPanel
+                Grid.Column="2"
+                Orientation="Horizontal">
+                <Label
+                    FontSize="20"
+                    Content="Enemy:"/>
+                <Label
+                    FontSize="20"
+                    Content="100"/>
+            </StackPanel>
+
+        </Grid>
+        <Grid
+            Height="150"
+            VerticalAlignment="Bottom"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBox
+            Height="75"
+            Width="400"
+            Grid.Column="1"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Text="{Binding MessageDisplay, Mode=OneWay}"
+            />
+            <Button
+                Height="50"
+                Width="80"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Content="Inventory"/>
+            <Button
+                Height="50"
+                Width="80"
+                Grid.Column="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Content="Evidence"/>
+            <Button
+                x:Name="Quit"
+                Height="50"
+                Width="80"
+                Grid.Column="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Content="Save/Quit" Click="Quit_Click"/>
+        </Grid>
+        
+        
+
+    </Grid>
+</Window>
