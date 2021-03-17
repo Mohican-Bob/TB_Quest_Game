@@ -26,7 +26,7 @@ namespace TB_Quest_Game.Models
             set { _health = value; }
         }
 
-
+        
         public string Name
         {
             get { return _name; }
@@ -35,7 +35,7 @@ namespace TB_Quest_Game.Models
 
         public Character()
         {
-
+            
         }
 
         public Character(string name, int health, int locationID)

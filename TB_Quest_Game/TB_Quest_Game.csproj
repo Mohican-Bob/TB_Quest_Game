@@ -65,7 +65,9 @@
     <Compile Include="DataLayer\GameData.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\GameStatus.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="ObservableObject.cs" />
     <Compile Include="PresentationLayer\GameSessionView.xaml.cs">
       <DependentUpon>GameSessionView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +114,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\0.jpg" />
     <Resource Include="Assets\1.jpg" />
     <Resource Include="Assets\10.jpg" />
     <Resource Include="Assets\2.jpg" />

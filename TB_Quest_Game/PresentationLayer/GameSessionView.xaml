@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TB_Quest_Game.PresentationLayer"
         mc:Ignorable="d"
-        Title="GameSessionView" Height="450" Width="800">
+        Title="GameSessionView" 
+        Height="600" Width="800" Background="black">
     <Window.Resources>
         <Style x:Key="GameBoardButtonStyle" TargetType="Button">
             <Setter Property="Margin" Value="10"/>
@@ -95,35 +96,143 @@
     </Window.Resources>
 
     <Grid>
-        <Image Source="1.jpg"
+        <Image Source="{Binding CurrentLocation}"
                Width="800"
                 Height="600">
         </Image>
+
         <Button
+            x:Name="Opening"
+            Height="30"
+            Width="55" 
+            Margin="248,269,489,120"
+            Content="Enter" 
+            Click="Enter_Room1_Click"
+            />
+        <Button
+            x:Name="Room1_Room2"
+            Height="30"
+            Width="55" 
+            Margin="187,419,550,120"
+            Content="Enter"
+            Click="Room1_Room2_Click"
+            />
+        <Button
+            x:Name="Room1_Room5"
             Height="30"
             Width="55" 
             Margin="605,132,132,257"
-            Content="Enter"
+            Content="Enter" Click="Room1_Room5_Click"
             />
         <Button
+            x:Name="Room1_Room3"
             Height="30"
             Width="55" 
-            Margin="217,296,520,93"
-            Content="Enter"
+            Margin="707,429,30,110"
+            Content="Enter" Click="Room1_Room3_Click"
             />
         <Button
+            x:Name="Room2_Room1"
             Height="30"
             Width="55" 
-            Margin="712,315,25,74"
-            Content="Enter"
+            Margin="53,429,684,110"
+            Content="Back"
+            Click="Enter_Room1_Click"
             />
+        <Button
+            x:Name="Room3_Room1"
+            Height="30"
+            Width="55" 
+            Margin="53,429,684,110"
+            Content="Back"
+            Click="Enter_Room1_Click"
+            />
+        <Button
+            x:Name="Room3_Room4"
+            Height="30"
+            Width="55" 
+            Margin="605,242,132,297"
+            Content="Enter"
+            Click="Room3_Room4_Click"
+            />
+        <Button
+            x:Name="Room4_Room3"
+            Height="30"
+            Width="55" 
+            Margin="132,449,605,90"
+            Content="Back"
+            Click="Room4_Room3_Click"
+            />
+        <Button
+            x:Name="Room5_Room1"
+            Height="30"
+            Width="55" 
+            Margin="624,335,113,204"
+            Content="Back"
+            Click="Enter_Room1_Click"
+            />
+        <Button
+            x:Name="Room5_Room6"
+            Height="30"
+            Width="55" 
+            Margin="463,252,274,287"
+            Content="Enter"
+            Click="Room5_Room6_Click"
+            />
+        <Button
+            x:Name="Room6_Room5"
+            Height="30"
+            Width="55" 
+            Margin="361,439,376,100"
+            Content="Back"
+            Click="Room6_Room5_Click"
+            />
+        <Button
+            x:Name="Room6_Room7"
+            Height="30"
+            Width="55" 
+            Margin="727,285,10,254"
+            Content="Enter"
+            Click="Room6_Room7_Click"
+            />
+        <Button
+            x:Name="Room7_Room6"
+            Height="30"
+            Width="55" 
+            Margin="439,439,298,100"
+            Content="Back"
+            Click="Room7_Room6_Click"
+            />
+        <Button
+            x:Name="Room6_Room8"
+            Height="30"
+            Width="55" 
+            Margin="375,277,362,262"
+            Content="Enter"
+            Click="Room6_Room8_Click"
+            />
+        <StackPanel
+            x:Name="Room8_Panel">
+            <Button
+            x:Name="Room8_Room6"
+            Height="30"
+            Width="55" 
+            Margin="368,450"
+            Content="Back"
+            Click="Room8_Room6_Click"
+            />
+        </StackPanel>
+
+
+
+
 
         <Grid
             Height="50"
             VerticalAlignment="Top"
-            Background="white">
+            Background="black">
             <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>            
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -132,16 +241,20 @@
             </Grid.ColumnDefinitions>
             <StackPanel
                 Grid.Column="0"
+                
                 Orientation="Horizontal">
                 <Label
                     FontSize="20"
+                    Foreground="White"
                     Content="Health:"/>
                 <Label
-                    FontSize="20"                    
+                    FontSize="20" 
+                    Foreground="White"
                     Content="{Binding Player.Health}"/>
             </StackPanel>
             <Label
                 FontSize="20"
+                Foreground="white"
                 Grid.Column="1"
                 Content="Placeholder Text"/>
             <StackPanel
@@ -149,10 +262,12 @@
                 Orientation="Horizontal">
                 <Label
                     FontSize="20"
+                    Foreground="white"
                     Content="Enemy:"/>
                 <Label
                     FontSize="20"
-                    Content="100"/>
+                    Foreground="white"
+                    Content="0"/>
             </StackPanel>
 
         </Grid>
@@ -168,30 +283,31 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="44.151"/>
+                <ColumnDefinition Width="55.849"/>
             </Grid.ColumnDefinitions>
             <TextBox
+            FontSize="17"
             Height="75"
             Width="400"
-            Grid.Column="1"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Center"
-            Text="{Binding MessageDisplay, Mode=OneWay}"
+            Text="{Binding MessageDisplay, Mode=OneWay}" Grid.ColumnSpan="3" Margin="96,10"
             />
             <Button
                 Height="50"
-                Width="80"
+                Width="80"                
                 Grid.Column="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Content="Inventory"/>
+                Content="Inventory" Margin="10,10"/>
             <Button
                 Height="50"
                 Width="80"
                 Grid.Column="3"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Content="Evidence"/>
+                Content="Evidence" Margin="10,10"/>
             <Button
                 x:Name="Quit"
                 Height="50"
@@ -199,10 +315,10 @@
                 Grid.Column="4"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Content="Save/Quit" Click="Quit_Click"/>
+                Content="Save/Quit" Click="Quit_Click" Grid.ColumnSpan="2" Margin="10,10"/>
         </Grid>
-        
-        
+
+
 
     </Grid>
 </Window>

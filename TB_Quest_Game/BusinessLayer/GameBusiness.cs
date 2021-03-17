@@ -17,6 +17,8 @@ namespace TB_Quest_Game.BusinessLayer
         Player _player = new Player();
         List<string> _messages;        
         PlayerSetupView _playerSetupView;
+        Location _location = new Location();
+
 
         private void SetupPlayer()
         {
@@ -38,7 +40,8 @@ namespace TB_Quest_Game.BusinessLayer
         public GameBusiness()
         {
             SetupPlayer();            
-            InstantiateAndShowView();
+            InstantiateAndShowView();  
+            
         }
 
         private void InitializeDataSet()
@@ -56,7 +59,7 @@ namespace TB_Quest_Game.BusinessLayer
             GameSessionView gameSessionView = new GameSessionView(_gameSessionViewModel);
 
             gameSessionView.DataContext = _gameSessionViewModel;
-
+            
             gameSessionView.Show();
 
             //
